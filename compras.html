@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<!-- Aluna: Tamara da Silva Teixeira
+	Disciplina: Construção de Página WEB
+	Pólo: Saquarema -->
+<head>
+<title>Bola da Vez - Compras</title>
+<link href="estilos.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="wrapper">
+<header>
+<div class="imgLogo"> <a href="boladavez.html"><img src="images/logo_pequeno.png" alt="Logo" width="380" height="70"></a>
+</div>
+<div class="ender">
+Avenida Volta Redonda, 906<br>
+    Tel: (21) 1234-5678<br>
+    <a href="mailto:contato@boladavez.com.br">contato@boladavez.com.br</a>
+</div>
+</header><br>
+<nav>
+<ul type="circle">
+      <li><a href="boladavez.html">Inicial</a></li>
+      <li><a href="bolas.html">Bolas</a>
+      </li>
+      <li><a href="esportes.html">Esportes
+      </a></li>
+      <li><a href="cadastro.html">Cadastro
+  </a></li>
+      <li><a href="compras.html">Compras</a></li>
+   </ul>
+</nav>
+<section>
+<h1>Compras</h1>
+<form style="width:545px;">
+
+<fieldset class="linhacompras">
+	<legend>Identificação</legend>
+	<label class="colPriCompras">E-mail:</label> 
+    	<input type="email" class="inpEmail">
+		Senha: <input type="text" class="inpMedio">
+	<p class="IdText" >Se você ainda não tem cadastro clique <a href="cadastro.html">aqui</a>!</p>
+</fieldset>
+
+<fieldset class="linhacompras">
+	<legend>Lista de Compras e Pagamento</legend>
+	Produtos:<br>
+
+    <select>
+	<optgroup label="Basquete">
+		<option value="bolabasqwilson">Bola-Basquete-Wilson</option>
+	</optgroup>
+	<optgroup label="Volei">
+		<option value="bolavolwilson">Bola-Volei-Wilson</option>
+		<option value="bolavolpenalty">Bola-Volei-Penalty</option>
+	</optgroup>
+	<optgroup label="Tenis">
+		<option value="bolatenwilson">Bola-Tenis-Wilson</option>
+		<option value="raqtenadams">Raquete-Tenis-Adams</option>
+	</optgroup>
+	<optgroup label="Futebol">
+		<option value="bolafutmatis">Bola-Futebol-Penalty-Matis</option>
+		<option value="bolafutultra">Bola-Futebol-Penalty-Ultra</option>
+		<option value="camfutalem">Camisa-Futebol-Adidas-Alemanha</option>
+		<option value="camfutport">Camisa-Futebol-Nike-Portugal</option>
+		<option value="camfutfra">Camisa-Futebol-Nike-França</option>
+	</optgroup>
+	</select>
+	<input type="button" value="Comprar">
+		
+    <fieldset class="fsEsqCompras">
+	<legend>Dados do Cartão</legend>
+
+		<fieldset>
+		<legend>Bandeira:</legend>
+		<input type="radio">Visa
+		<input type="radio">Master
+		<input type="radio">Amex
+		</fieldset>
+
+	<p><label class="colPriCompras">Validade: </label>
+    <input style="number" min="01" max="12" class="numDD">/<input style="number" min="2016" max="2022" class="numQD"></p>
+
+	<p><label class="colPriCompras">Número:</label> <input type="text"></p>
+	</fieldset>
+
+	<div class="imgCompras"><img src="" width="150" height="230"></div>
+	<label class="fsDirCompras">Valor: R$ <input class="inpMedio" type="text"></label>
+</fieldset>
+<div class="botoes"><input type="submit" value="Enviar"><input type="reset" value="Limpar"></div>
+</form>
+</section>
+</div>
+</body>
+</html>

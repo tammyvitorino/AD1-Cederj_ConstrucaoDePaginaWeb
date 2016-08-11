@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<!-- Aluna: Tamara da Silva Teixeira
+	Disciplina: Construção de Página WEB
+	Pólo: Saquarema -->
+<head>
+<title>Bola da Vez - Bolas</title>
+<link href="estilos.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="wrapper">
+<header>
+<div class="imgLogo"> <a href="boladavez.html"><img src="images/logo_pequeno.png" alt="Logo" width="380" height="70"></a>
+</div>
+<div class="ender">
+Avenida Volta Redonda, 906<br>
+    Tel: (21) 1234-5678<br>
+    <a href="mailto:contato@boladavez.com.br">contato@boladavez.com.br</a>
+</div>
+</header><br>
+<nav>
+<ul type="circle">
+      <li><a href="boladavez.html">Inicial</a></li>
+      <li><a href="bolas.html">Bolas</a>
+      </li>
+      <li><a href="esportes.html">Esportes
+      </a></li>
+      <li><a href="cadastro.html">Cadastro
+  </a></li>
+      <li><a href="compras.html">Compras</a></li>
+    </ul>
+</nav>
+<section>
+<h1>Cadastro</h1>
+<form style="width:510px;">
+
+<fieldset>
+	<legend>Indentificação</legend>
+	<div class="formLinha">
+   		<label class="colPri">E-mail:</label>
+		<input type="text" class="inpGrande">
+    </div>
+	<div class="formLinha2">
+   		<label class="colPri">Senha:</label>
+       	<input type="text" class="inpMedio">
+		<label class="elemDir">Confirme: 
+  	    	<input type="text" class="inpMedio">
+       	</label>
+    </div>
+</fieldset>
+
+<fieldset>
+<legend>Dados Pessoais</legend>
+	<div class="formLinha">
+    	<label class="colPri">Nome:</label>
+		<input type="text" class="inpGrande">
+    </div>
+	<div class="formLinha">
+    	<label class="colPri">Endereço:</label>
+		<textarea rows="1" class="inpGrande"></textarea>
+    </div>
+	<div class="formLinha2">
+    	<label class="colPri">Telefone:</label>
+        <input type="text" class="inpMedio">
+		<label class="elemDir">Celular: 
+        	<input type="text" class="inpMedio">
+        </label>
+    </div>
+	<fieldset class="fsEsq">
+		<legend>Nascimento:</legend>
+		<input type="number" class="numDD">/<input type="number" class="numDD">/<input type="number" class="numQD">
+	</fieldset>
+	<fieldset class="fsDir">
+		<legend>Sexo:</legend>
+		<input type="radio">Masculino <input type="radio">Feminino
+	</fieldset>
+</fieldset>
+<div class="botoes"><input type="submit" value="Enviar"><input type="reset" value="Limpar"></div>
+</form>
+</section>
+</div>
+</body>
+</html>
