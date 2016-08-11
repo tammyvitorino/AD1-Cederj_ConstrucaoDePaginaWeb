@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!-- Aluna: Tamara da Silva Teixeira
 	Disciplina: Construção de Página WEB
 	Pólo: Saquarema -->
@@ -37,7 +37,7 @@ Avenida Volta Redonda, 906<br>
 	<legend>Identificação</legend>
 	<label class="colPriCompras">E-mail:</label> 
     	<input type="email" class="inpEmail">
-		Senha: <input type="text" class="inpMedio">
+		Senha: <input type="password" class="inpMedio">
 	<p class="IdText" >Se você ainda não tem cadastro clique <a href="cadastro.html">aqui</a>!</p>
 </fieldset>
 
@@ -72,13 +72,13 @@ Avenida Volta Redonda, 906<br>
 
 		<fieldset>
 		<legend>Bandeira:</legend>
-		<input type="radio">Visa
-		<input type="radio">Master
-		<input type="radio">Amex
+		<input type="radio" value="readonly" name="bandeira" >Visa
+		<input type="radio" value="readonly" name="bandeira" >Master
+		<input type="radio" value="readonly" name="bandeira" >Amex
 		</fieldset>
 
 	<p><label class="colPriCompras">Validade: </label>
-    <input style="number" min="01" max="12" class="numDD">/<input style="number" min="2016" max="2022" class="numQD"></p>
+    <input type="number" min="01" max="12" class="numDD">/<input type="number" min="2016" max="2022" class="numQD"></p>
 
 	<p><label class="colPriCompras">Número:</label> <input type="text"></p>
 	</fieldset>
