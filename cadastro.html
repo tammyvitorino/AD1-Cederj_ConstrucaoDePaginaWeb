@@ -3,127 +3,143 @@
 	Disciplina: Construção de Página WEB
 	Pólo: Saquarema -->
 <head>
-<title>Bola da Vez - Cadastro</title>
-<link href="estilos.css" rel="stylesheet" type="text/css">
+    <title>Bola da Vez - Cadastro</title>
+    <link href="estilos.css" rel="stylesheet" type="text/css">
 
-<script type="text/javascript">
-function verifica() {
-  if (document.forms[0].email.value.length == 0) {
-    alert('Campo EMAIL não pode ser vazio');
-	document.frmEnvia.email.focus();
-    return false;
-  }
-  return true;
-}
+    <script type="text/javascript">
+        function verifica() {
+            if (document.forms[0].email.value.length == 0) {
+                alert('Campo EMAIL não pode ser vazio');
+                document.frmEnvia.email.focus();
+                return false;
+            }
+            return true;
+        }
 
-function checarEmail(){
-	
-	var x = document.forms[0].email.value;
-    var atpos = x.indexOf("@");
-    var dotpos = x.lastIndexOf(".");
-	
-	
-if (atpos<1	){
-        alert("Email tem que ter um caracter '@'!");
-        return false;	
-	}
-if	(dotpos<1) {
-	    alert("Email tem que ter pelo menos um caracter '.'!");
-        return false;	
-	}
+        function checarEmail() {
 
-if	(dotpos<atpos+2 || dotpos+2>=x.length) {
-	    alert("O '.' não pode estar imediatamente após o '@' nem no fim do email!");
-        return false;	
-	}
-}
-</script>
+            var x = document.forms[0].email.value;
+            var atpos = x.indexOf("@");
+            var dotpos = x.lastIndexOf(".");
+
+
+            if (atpos < 1) {
+                alert("Email tem que ter um caracter '@'!");
+                return false;
+            }
+            if (dotpos < 1) {
+                alert("Email tem que ter pelo menos um caracter '.'!");
+                return false;
+            }
+
+            if (dotpos < atpos + 2 || dotpos + 2 >= x.length) {
+                alert("O '.' não pode estar imediatamente após o '@' nem no fim do email!");
+                return false;
+            }
+
+//            return checkAt(x);
+
+            return function checkAt(email) {
+                var count = 0;
+                for (var i = 0; i < email.length; i ++){
+                    if(email[i] == '@') count++;
+                    if(count > 1) break;
+                }
+
+                if(count > 1) {
+                    alert('Mais de um @');
+                    return false;
+                } else return true;
+            }
+
+        }
+    </script>
 
 </head>
 <body>
 <div class="wrapper">
 
-<header>
-<div class="imgLogo">
-<a href="boladavez.html"><img src="images/logo_pequeno.png" alt="Logo" width="380" height="70"></a>
-</div>
-<div class="ender">
-Avenida Volta Redonda, 906<br>Tel: (21) 1234-5678<br>
-<a href="mailto:contato@boladavez.com.br">contato@boladavez.com.br</a>
-</div>
-</header>
+    <header>
+        <div class="imgLogo">
+            <a href="boladavez.html"><img src="images/logo_pequeno.png" alt="Logo" width="380" height="70"></a>
+        </div>
+        <div class="ender">
+            Avenida Volta Redonda, 906<br>Tel: (21) 1234-5678<br>
+            <a href="mailto:contato@boladavez.com.br">contato@boladavez.com.br</a>
+        </div>
+    </header>
 
-<nav>
-<ul>
-      <li><a href="boladavez.html">Inicial</a></li>
-      <li><a href="bolas.html">Bolas</a></li>
-      <li><a href="esportes.html">Esportes</a></li>
-      <li><a href="cadastro.html">Cadastro</a></li>
-      <li><a href="compras.html">Compras</a></li>
-  </ul>
-</nav>
+    <nav>
+        <ul>
+            <li><a href="boladavez.html">Inicial</a></li>
+            <li><a href="bolas.html">Bolas</a></li>
+            <li><a href="esportes.html">Esportes</a></li>
+            <li><a href="cadastro.html">Cadastro</a></li>
+            <li><a href="compras.html">Compras</a></li>
+        </ul>
+    </nav>
 
-<section>
-<h1>Cadastro</h1>
-<form style="width:510px;" method="post" action="" onSubmit="return ( verifica() )" name="frmEnvia">
+    <section>
+        <h1>Cadastro</h1>
+        <form style="width:510px;" method="post" action="" onSubmit="return ( verifica() )" name="frmEnvia">
 
-<fieldset>
-	<legend>Indentificação</legend>
-	<div class="formLinha">
-   		<label class="colPri" for="email">E-mail:</label>
-		<input name="email" type="text" class="inpGrande" id="email" onblur="checarEmail();" />
-    </div>
-	<div class="formLinha2">
-   		<label class="colPri" for="senha">Senha:</label>
-       	<input type="password" class="inpMedio" id="senha" name="pass">
+            <fieldset>
+                <legend>Indentificação</legend>
+                <div class="formLinha">
+                    <label class="colPri" for="email">E-mail:</label>
+                    <input name="email" type="text" class="inpGrande" id="email" onblur="checarEmail();"/>
+                </div>
+                <div class="formLinha2">
+                    <label class="colPri" for="senha">Senha:</label>
+                    <input type="password" class="inpMedio" id="senha" name="pass">
 		<span class="elemDir">
 		<label for="confsenha">Confirme:</label>	
         <input type="password" class="inpMedio" id="confsenha">
-		</span>        
-   	</div>    
-</fieldset>
+		</span>
+                </div>
+            </fieldset>
 
-<fieldset>
-<legend>Dados Pessoais</legend>
-	<div class="formLinha">
-    	<label class="colPri" for="name">Nome:</label>
-		<input type="text" class="inpGrande" id="name" name="nome">
-    </div>
-	<div class="formLinha">
-    	<label class="colPri" for="address">Endereço:</label>
-		<textarea rows="2" class="inpGrande" id="address" name="endere"></textarea>
-    </div>
-	<div class="formLinha2">
-    	<label class="colPri" for="tel">Telefone:</label>
-        <input type="tel" class="inpMedio" id="tel" name="tele">
+            <fieldset>
+                <legend>Dados Pessoais</legend>
+                <div class="formLinha">
+                    <label class="colPri" for="name">Nome:</label>
+                    <input type="text" class="inpGrande" id="name" name="nome">
+                </div>
+                <div class="formLinha">
+                    <label class="colPri" for="address">Endereço:</label>
+                    <textarea rows="2" class="inpGrande" id="address" name="endere"></textarea>
+                </div>
+                <div class="formLinha2">
+                    <label class="colPri" for="tel">Telefone:</label>
+                    <input type="tel" class="inpMedio" id="tel" name="tele">
         <span class="elemDir">
 		<label for="cel">Celular: </label>
        	<input type="tel" class="inpMedio" id="cel" name="celu">
         </span>
 
-    </div>
-	
-    <fieldset class="fsEsq">
-		<legend>Nascimento:</legend>
-		<input type="number" class="numDD" min="01" max="31">/
-        <input type="number" class="numDD" min="01" max="12">/
-        <input type="number" class="numQD" min="1920" max="2016">
-	</fieldset>
-    
-	<fieldset class="fsDir">
-		<legend>Sexo:</legend>
-		<input type="radio" value="masculino" id="male" name="sexo"><label for="male">Masculino</label>
-        <input type="radio" value="feminino" name="sexo" id="female"><label for="female">Feminino</label>
-	</fieldset>
-</fieldset>
+                </div>
 
-<div class="botoes">
-<input name="submit" type="submit" value="Enviar">
-<input type="reset" value="Limpar">
-</div>
+                <fieldset class="fsEsq">
+                    <legend>Nascimento:</legend>
+                    <input type="number" class="numDD" min="01" max="31">/
+                    <input type="number" class="numDD" min="01" max="12">/
+                    <input type="number" class="numQD" min="1920" max="2016">
+                </fieldset>
 
-</form>
-</section>
+                <fieldset class="fsDir">
+                    <legend>Sexo:</legend>
+                    <input type="radio" value="masculino" id="male" name="sexo"><label for="male">Masculino</label>
+                    <input type="radio" value="feminino" name="sexo" id="female"><label for="female">Feminino</label>
+                </fieldset>
+            </fieldset>
+
+            <div class="botoes">
+                <input name="submit" type="submit" value="Enviar">
+                <input type="reset" value="Limpar">
+            </div>
+
+        </form>
+    </section>
 
 </div>
 </body>
