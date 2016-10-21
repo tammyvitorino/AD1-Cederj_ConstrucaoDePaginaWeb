@@ -37,9 +37,9 @@
                 return false;
             }
 
-//            return checkAt(x);
+            return checkAt(x);
 
-            return function checkAt(email) {
+            function checkAt(email) {
                 var count = 0;
                 for (var i = 0; i < email.length; i ++){
                     if(email[i] == '@') count++;
