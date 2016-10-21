@@ -22,7 +22,6 @@
             var atpos = x.indexOf("@");
             var dotpos = x.lastIndexOf(".");
 
-
             if (atpos < 1) {
                 alert("Email tem que ter um caracter '@'!");
                 return false;
@@ -37,7 +36,7 @@
                 return false;
             }
 
-            return checkAt(x);
+            checkAt(x);
 
             function checkAt(email) {
                 var count = 0;
@@ -46,10 +45,16 @@
                     if(count > 1) break;
                 }
 
-                if(count > 1) {
-                    alert('Mais de um @');
-                    return false;
-                } else return true;
+                if(count){
+                    if(count == 1) return true;
+                    else {
+                        alert('Mais de um @');
+                        return false;
+                    }
+                } else {
+                    alert('Email tem que ter pelo menos um @.');
+                    return false
+                }
             }
         }
     </script>
