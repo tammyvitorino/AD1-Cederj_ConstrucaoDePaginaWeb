@@ -22,32 +22,47 @@
             var atpos = x.indexOf("@");
             var dotpos = x.lastIndexOf(".");
 
-            if (atpos < 1) {
-                alert("Email tem que ter um caracter '@'!");
-                return false;
-            }
-            if (dotpos < 1) {
-                alert("Email tem que ter pelo menos um caracter '.'!");
-                return false;
-            }
-
-            if (dotpos < atpos + 2 || dotpos + 2 >= x.length) {
-                alert("O '.' não pode estar imediatamente após o '@' nem no fim do email!");
-                return false;
-            }
+//            if (atpos < 1) {
+//                alert("Email tem que ter um caracter '@'!");
+//                return false;
+//            }
+//            if (dotpos < 1) {
+//                alert("Email tem que ter pelo menos um caracter '.'!");
+//                return false;
+//            }
+//
+//            if (dotpos < atpos + 2 || dotpos + 2 >= x.length) {
+//                alert("O '.' não pode estar imediatamente após o '@' nem no fim do email!");
+//                return false;
+//            }
 
             checkAt(x);
 
             function checkAt(email) {
-                var count = 0;
-                for (var i = 0; i < email.length; i ++){
-                    if(email[i] == '@') count++;
-                    if(count > 1) break;
+                var count = 0,
+                        target = '@';
+                for (var i = 0; i < email.length; i++) {
+                    if (i == 0) {
+                        if (email[i] == target) {
+                            alert('Começando com @.');
+                            return false;
+                        }
+                    }
+
+                    if (i == email.length - 1) {
+                        if (email[i] == target) {
+                            alert('Terminando com @.');
+                            return false;
+                        }
+                    }
+
+                    if (email[i] == target) count++;
+                    if (count > 1) break;
                 }
 
-                if(count){
-                    if(count == 1) return true;
-                    if(count > 1) {
+                if (count) {
+                    if (count == 1) return true;
+                    if (count > 1) {
                         alert('Mais de um @');
                         return false;
                     }
