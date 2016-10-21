@@ -4,15 +4,13 @@
 	Disciplina: Construção de Página WEB
 	Pólo: Saquarema */
 
-/* Tags Principais */
+/* TagsPrincipais */
 body    { 
 		background-color: #377254 ; 
 		color:#FCD605 ; 
 		font-size: 16px;
 		font-family: Verdana, Liberation, sans-serif ;
 		}
-
-/* Tags Secundárias */
 nav ul  {
 		color:#F3EDA3 ;
 		}
@@ -21,35 +19,15 @@ ol, ul	{
 		}
 a:link {color:#FFFF33 ; text-decoration:none }
 a:visited {color: #F3EDA3 ; }
-/* Outros Ajustes */
-ol 		{
-		list-style-type:decimal;
-		}
-ul		{
-		list-style-type:circle;
-		}
-h1		{ font-size:16px;}
-legend  {color:#FCD605 ;}
-.wrapper {
-	width: 800px;
-	margin: 0 auto;
-}
-.product{ font-weight:bold;}
-.headerHOME { height:115px; width:10px; float:left;}
-.IdText { font-style: italic;
-		   font-weight: bold;
-		}
-.imgCompras { margin: -35px 0px 0px 0px;
-	   		  text-align: right;
-		}
-		
-/* Classes de Estilo */
+
+/* Classes de Estilo Base */
 .ender 	{ /*Informações   de   localização*/
 	    text-align:right;
 		font-size:16px;
 		line-height:150%;
 		float:right;
 		font-style:italic;
+		height:97px;
 		}
 .apres 	{
 		text-align:center;
@@ -61,6 +39,19 @@ legend  {color:#FCD605 ;}
 		padding-bottom:15px;
 		float:left;
 		}
+		
+/* Outros Ajustes */
+ol 		{
+		list-style-type:decimal;
+		}
+ul		{
+		list-style-type:circle;
+		}
+h1		{ font-size:16px;}
+legend  {color:#FCD605 ;}
+
+
+/*Classes ESPORTES*/
 .tabInfo{
 		border-collapse:collapse;
 		margin-top:6px;
@@ -79,19 +70,19 @@ legend  {color:#FCD605 ;}
 		background-color:#0077BB;
 		vertical-align:middle;
 		text-align:center;
-		font-weight:bold;
 		}
 .colTH	{
 		color:#006600;
 		background-color:#AACC55;
 		text-align:left;
-		font-weight:bold;
 		}
 .preço	{
 		color:#CC0000;
 		font-weight:bold;
 		vertical-align:middle;
 		}
+		
+/*Classes CADASTRO*/
 .fsEsq	{
 		float:left;
 		display:inline;
@@ -107,15 +98,15 @@ legend  {color:#FCD605 ;}
 .botoes	{
 		text-align:right;
 		margin: 20px 10px 0px 10px;
-		}
+		}		
 .formLinha {
 		width:470px;
 		margin-bottom:6px;		
 		}
 .formLinha2 {
-		width:466px;
+		width:465px;
 		margin-bottom:6px;		
-		}
+		}		
 .colPri {
 		float:left;
 		display:block;
@@ -125,10 +116,14 @@ legend  {color:#FCD605 ;}
 		float:right;
 		display:block;
 		}
-.inpGrande  { width:370px;	}
-.inpMedio   { width:120px;	}
-.numDD		{ width:30px;	}
-.numQD		{ width:50px;	}
+				
+/*Classes COMPRAS*/
+.IdText { font-style: italic;
+		  font-weight: bold;
+		}
+.textCompras { margin: -35px 0px 0px 0px;
+	   		  text-align: right;
+		}
 .fsEsqCompras { float: left;
 				display: inline
 			}
@@ -137,14 +132,22 @@ legend  {color:#FCD605 ;}
 			}
 .linhacompras { width: 500px;
 				margin-bottom: 6px;
-			}
+			}		
 .colPriCompras { float: left;
 				 display: block;
 				 width: 86px;
 				}
 .inpEmail	{ width: 200px; }
 	    
-/* Tags de Estrutura */
+/*Classes FORMULÁRIOS*/
+
+.inpGrande  { width:370px;	}
+.inpMedio   { width:120px;	}
+.numDD		{ width:30px;	}
+.numQD		{ width:50px;	}
+
+
+/* Estrutura */
 header  {
 	display: block;
 	margin-bottom: 1px;
@@ -153,3 +156,14 @@ header  {
 nav     { display:block; width: 20%; float: left;} 
 section { display:block; width: 77%; float: right;} 
 fieldset { margin:20px 10px 0px 10px; }
+.wrapper {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+/*Ajustes pra AD2 */ 
+.subpage ul	{	list-style-type:disc;	}
+.tabInfo a:link { color:#003333; text-decoration:none; }
+.tabInfo a:hover   { color:#006600; text-decoration:none; font-weight: bold; }
+.tabInfo a:visited { color:#005555; text-decoration:none; }
+

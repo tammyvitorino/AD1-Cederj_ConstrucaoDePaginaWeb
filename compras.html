@@ -1,73 +1,86 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!-- Aluna: Tamara da Silva Teixeira
 	Disciplina: Construção de Página WEB
 	Pólo: Saquarema -->
 <head>
 <title>Bola da Vez - Compras</title>
 <link href="estilos.css" rel="stylesheet" type="text/css">
+<script>
+var prodPreco = new Array(70,73,80,45,70,75,70,180,210,220);
+function Compra(f) {
+var j = f.escProduto.selectedIndex;
+var total = (f.TotaItem.value > 0)
+? parseFloat(f.TotaItem.value) : 0;
+
+f.listaProdutos.value+=f.escProduto[j].text+"\n" + " ";
+						f.TotaItem.value = total + prodPreco[j];
+}
+</script>
 </head>
+
 <body>
 <div class="wrapper">
 <header>
-<div class="imgLogo"> <a href="boladavez.html"><img src="images/logo_pequeno.png" alt="Logo" width="380" height="70"></a>
+<div class="imgLogo">
+<a href="boladavez.html"><img src="images/logo_pequeno.png" alt="Logo" width="380" height="70"></a>
 </div>
 <div class="ender">
-Avenida Volta Redonda, 906<br>
-    Tel: (21) 1234-5678<br>
-    <a href="mailto:contato@boladavez.com.br">contato@boladavez.com.br</a>
+Avenida Volta Redonda, 906<br>Tel: (21) 1234-5678<br>
+<a href="mailto:contato@boladavez.com.br">contato@boladavez.com.br</a>
 </div>
-</header><br>
+</header>
+
 <nav>
-<ul type="circle">
+<ul>
       <li><a href="boladavez.html">Inicial</a></li>
-      <li><a href="bolas.html">Bolas</a>
-      </li>
-      <li><a href="esportes.html">Esportes
-      </a></li>
-      <li><a href="cadastro.html">Cadastro
-  </a></li>
+      <li><a href="bolas.html">Bolas</a></li>
+      <li><a href="esportes.html">Esportes</a></li>
+      <li><a href="cadastro.html">Cadastro</a></li>
       <li><a href="compras.html">Compras</a></li>
-   </ul>
+  </ul>
 </nav>
+
 <section>
 <h1>Compras</h1>
-<form style="width:545px;">
 
-<fieldset class="linhacompras">
+<form style="width:545px;" name="fcad" method="post">
+
+<fieldset>
 	<legend>Identificação</legend>
-	<label class="colPriCompras">E-mail:</label> 
-    	<input type="email" class="inpEmail">
-		Senha: <input type="password" class="inpMedio">
-	<p class="IdText" >Se você ainda não tem cadastro clique <a href="cadastro.html">aqui</a>!</p>
+    <div class="linhacompras">
+	<label class="colPriCompras" for="email">E-mail:</label> <input type="email" class="inpEmail" id="email" name="TxtEmail" required />
+	<label class="elemDir" for="pass">Senha: <input type="password" class="inpMedio" id="pass" name="TxtSenha" required /></label>
+    <p class="IdText" >Se você ainda não tem cadastro clique <a href="cadastro.html">aqui</a>!</p>
+    </div>
 </fieldset>
 
-<fieldset class="linhacompras">
+<fieldset>
 	<legend>Lista de Compras e Pagamento</legend>
-	Produtos:<br>
+	
+	<textarea class="elemDir" name="listaProdutos" readonly cols="20" rows="14"> </textarea> 
 
-    <select>
-	<optgroup label="Basquete">
-		<option value="bolabasqwilson">Bola-Basquete-Wilson</option>
-	</optgroup>
-	<optgroup label="Volei">
-		<option value="bolavolwilson">Bola-Volei-Wilson</option>
-		<option value="bolavolpenalty">Bola-Volei-Penalty</option>
-	</optgroup>
-	<optgroup label="Tenis">
-		<option value="bolatenwilson">Bola-Tenis-Wilson</option>
-		<option value="raqtenadams">Raquete-Tenis-Adams</option>
-	</optgroup>
-	<optgroup label="Futebol">
-		<option value="bolafutmatis">Bola-Futebol-Penalty-Matis</option>
-		<option value="bolafutultra">Bola-Futebol-Penalty-Ultra</option>
-		<option value="camfutalem">Camisa-Futebol-Adidas-Alemanha</option>
-		<option value="camfutport">Camisa-Futebol-Nike-Portugal</option>
-		<option value="camfutfra">Camisa-Futebol-Nike-França</option>
-	</optgroup>
+	<div class="linhaCompras"> Produtos:<br/> 
+	<Select name="escProduto" id="escProduto">
+		<optgroup label="Basquete">     
+        	<option value="1">Bola-Basquete-Wilson</option>
+        </optgroup> <optgroup label="Volei">     
+        	<option value="2">Bola-Volei-Wilson</option>     
+            <option value="3">Bola-Volei-Penalty</option>
+        </optgroup> <optgroup label="Tenis">     
+        	<option value="4">Bola-Tenis-Wilson</option>     
+            <option value="5">Raquete-Tenis-Adams</option>
+        </optgroup> <optgroup label="Futebol">     
+        	<option value="6">Bola-Futebol-Penalty-Matis</option>     
+            <option value="7">Bola-Futebol-Penalty-Ultra</option>     
+            <option value="8">Camisa-Futebol-Adidas-Alemanha</option>     
+            <option value="9">Camisa-Futebol-Nike-Portugal</option> 
+            <option value="10">Camisa-Futebol-Nike-França</option>
+        </optgroup> 
 	</select>
-	<input type="button" value="Comprar">
-		
-    <fieldset class="fsEsqCompras">
+	<input type="button" value="Comprar" onClick="Compra(this.form);" />
+	</div>
+    
+<fieldset class="fsEsqCompras">
 	<legend>Dados do Cartão</legend>
 
 		<fieldset>
@@ -77,16 +90,21 @@ Avenida Volta Redonda, 906<br>
 		<input type="radio" value="readonly" name="bandeira" id="amex"><label for="amex">Amex</label>
 		</fieldset>
 
-	<p><label class="colPriCompras">Validade: </label>
-    <input type="number" min="01" max="12" class="numDD">/<input type="number" min="2016" max="2022" class="numQD"></p>
+	 <p><label class="colPriCompras">Validade: </label>
+		<input type="number" min="01" max="12" class="numDD">/
+        <input type="number" min="2016" max="2022" class="numQD"></p>
 
-	<p><label class="colPriCompras">Número:</label> <input type="number"></p>
+	<p><label class="colPriCompras">Número:</label><input type="number"></p>
 	</fieldset>
-
-	<div class="imgCompras"><img src="" width="150" height="230"></div>
-	<label class="fsDirCompras">Valor: R$ <input class="inpMedio" type="number"></label>
+	
+	<span class="fsDirCompras"><label class="elemDir" for="TotaItem">Valor: R$
+	<input type="text" name="TotaItem" readonly id="TotaItem" class="inpMedio" /></label></span>
 </fieldset>
-<div class="botoes"><input type="submit" value="Enviar"><input type="reset" value="Limpar"></div>
+
+<div class="botoes">
+<input type="submit" value="Enviar">
+<input type="reset" value="Limpar">
+</div>
 </form>
 </section>
 </div>

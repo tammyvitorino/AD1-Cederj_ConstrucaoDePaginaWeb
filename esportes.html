@@ -3,91 +3,131 @@
 	Disciplina: Construção de Página WEB
 	Pólo: Saquarema -->
 <head>
-<title>Bola da Vez - Esportes</title>
+<title>Bola da Vez - Esportes</title><base target="_blank" />
 <link href="estilos.css" rel="stylesheet" type="text/css">
+
+<script language="javascript">
+
+var prodnome = new Array ("","Wilson", "Wilson","Penalty","Wilson","Adams","Penalty Matis","Penalty Ultra","Adidas Alemanha","Nike Portugal","Nike França")
+var prodfoto = new Array ("Vazio","Bola_Basquete","Bola_VoleiWilson","Bola_Volei","Bola_Tenis","Raquete_Tenis","Bola_Futebol_Matis","Bola_Futebol","Camisa_Adidas_Alemanha","Camisa_Nike_Portugal","Camisa_Nike_Franca")
+var prodpreco = new Array ("","70","73","80","45","70","75","70","180","210","220")
+
+function actNull() { return false; }
+function mostra(titulo, modelo, preco) {
+var nome = document.getElementById("bolanome");
+var foto = document.getElementById("bolaimg");
+var prec = document.getElementById("bolaprc");
+
+nome.innerHTML = titulo
+foto.src = "images/" + modelo + ".jpg";
+prec.innerHTML = "R$ " + preco + ",00";
+}
+
+
+</script>
+
 </head>
 <body>
 <div class="wrapper">
+
 <header>
-<div class="imgLogo"> <a href="boladavez.html"><img src="images/logo_pequeno.png" alt="Logo" width="380" height="70"></a>
-</div>
-<div class="ender">
-Avenida Volta Redonda, 906<br>
-    Tel: (21) 1234-5678<br>
-    <a href="mailto:contato@boladavez.com.br">contato@boladavez.com.br</a>
-</div>
-</header><br>
+<div class="imgLogo">
+<a href="boladavez.html"><img src="images/logo_pequeno.png" alt="Logo" width="380" height="70"></a></div>
+<div class="ender">Avenida Volta Redonda, 906<br>Tel: (21) 1234-5678<br>
+<a href="mailto:contato@boladavez.com.br">contato@boladavez.com.br</a></div>
+</header>
+
 <nav>
-<ul type="circle">
+<ul>
       <li><a href="boladavez.html">Inicial</a></li>
-      <li><a href="bolas.html">Bolas</a>
-      </li>
-      <li><a href="esportes.html">Esportes
-      </a></li>
-      <li><a href="cadastro.html">Cadastro
-  </a></li>
+      <li><a href="bolas.html">Bolas</a></li>
+      <li><a href="esportes.html">Esportes</a></li>
+      <li><a href="cadastro.html">Cadastro</a></li>
       <li><a href="compras.html">Compras</a></li>
   </ul>
 </nav>
+
 <section>
 <h1>Esportes</h1>
+<div style="float:left">
 <table class="tabInfo">
-  <tr class="linTH">
-	  <td colspan="5">Esportes</td>
+  <tr>
+	<th class="linTH" colspan="5">Esportes </th>
   </tr>
-  <tr class="linTH">
-  	<td>Modalidade</td>
-    <td>Produto</td>
-    <td>Marca e Modelo</td>
-    <td>Foto</td>
-    <td>Preço</td>
+  
+  <tr>
+  	<th class="linTH">Modalidade</th>
+    <th class="linTH">Produto</th>
+    <th class="linTH">Marca e Modelo</th>
+  </tr>
+
+  <tr>
+  	<th class="colTH">Basquete</th>
+    <th> Bola</th>
+    <td> 
+	<a href="javascript:actNull();" onClick="mostra('Bola de Basquete '+prodnome[1],prodfoto[1], prodpreco[1]);">Wilson</a> </td>
+  </tr>
+  
+  <tr>
+  	<th class="colTH">Volei</th>
+    <th>Bola</th>
+    <td>
+    	<select id="produtos" onchange="return mostra('Bola de Vôlei '+prodnome[this.value],prodfoto[this.value],prodpreco[this.value]);" >
+        	<optgroup>
+               	<option value="0"></option>
+            	<option value="2">Wilson</option>
+               	<option value="3">Penalty</option>
+            </optgroup>
+        </select>
+	</td>
+  </tr>
+
+  <tr>
+  	<th rowspan="2" class="colTH">Tenis</th>
+    <th>Bola</th>
+    <td><a href="javascript:actNull();" onClick="mostra('Bola de Tênis '+prodnome[4],prodfoto[4], prodpreco[4]);">Wilson</a></td>
   </tr>
   <tr>
-  	<td rowspan="2" class="colTH">Volei</td>
-    <td rowspan="2" class="product">Bola</td>
-    <td> Wilson </td>
-    <td rowspan="2"><img src="images/BolaVolei.png" alt="boladevolei" width="60" height="60"></td>
-    <td class="preço">R$ 73,00</td>
-    </tr>
-    <tr><td>Penalty</td>
-    <td class="preço">R$ 80,00</td>
+  	<th>Raquete</th>
+    <td><a href="javascript:actNull();" onClick="mostra('Raquete de Tênis '+prodnome[5],prodfoto[5], prodpreco[5]);">Adams</a></td>
   </tr>
+  
+  
   <tr>
-  	<td rowspan="2" class="colTH">Tenis</td>
-    <td class="product">Bola</td>
-    <td>Wilson</td>
-    <td rowspan="2"><img src="images/Raquete_Tenis_Bolas.png" alt="" width="60" height="60"></td>
-    <td class="preço">R$ 45,00</td>
-    </tr>
-    <tr><td class="product">Raquete</td>
-    <td>Adams</td>
-    <td class="preço">R$ 70,00</td>
-  </tr>
-  <tr>
-  	<td rowspan="5" class="colTH">Futebol</td>
-    <td rowspan="2" class="product">Bola</td>
-    <td>Penalty Matis</td>
-    <td rowspan="2"><img src="images/BolaFutebol.png" alt="bolafutebol" width="60" height="60"></td>
-    <td class="preço"> R$ 75,00</td>
-    </tr>
-    <tr>
-    <td>Penalty Ultra</td>
-    <td class="preço">R$ 70,00</td>
-    </tr>
-    <tr><td rowspan="3" class="product">Camisa</td>
-    <td>Adidas Alemanha</td>
-    <td rowspan="3"><img src="images/Camisa.png" alt="camisafutebol" width="60" height="80"></td>
-    <td class="preço">R$ 180,00</td>
-    </tr>
-    <tr>
-    <td>Nike Portugal</td>
-    <td class="preço">R$ 210,00</td>
-    </tr>
-    <tr>
-    <td>Nike França</td>
-    <td class="preço">R$ 220,00</td>
+  	<th rowspan="2" class="colTH">Futebol</th>
+    <th>Bola</th>
+    <td>
+    	<select  id="produtos" onchange="return mostra('Bola de Futebol '+prodnome[this.value],prodfoto[this.value],prodpreco[this.value]);" >
+        	<optgroup>
+            	<option value="0"></option>
+            	<option value="6" >Penalty Matis</option>
+                <option value="7">Penalty Ultra</a></option>
+            </optgroup>
+        </select>
+    </td>
+   </tr>
+   
+   <tr><th>Camisa</th>
+    <td>
+    	<select id="produtos" onchange="return mostra('Camisa '+prodnome[this.value],prodfoto[this.value],prodpreco[this.value]);" >
+        	<optgroup>
+            	<option value="0"></option>
+            	<option value="8">Adidas Alemanha</option>
+                <option value="9">Nike Portugal</option>
+                <option value="10">Nike França</option>
+            </optgroup>
+        </select>
+    </td>
   </tr>
  </table>
+ </div>
+ <div style="float:left; margin-left:10px">
+ <table class="tabInfo" style="text-align:center" >
+ 	<tr><th id="bolanome"><br></th></tr>
+	<tr style="height:203px"><td><img id="bolaimg" src="images/Vazio.jpg" /></td></tr>
+    <tr><td id="bolaprc" class="preço"><br></td></tr>
+ </table>
+ </div>
 </section>
 </div>
 </body>

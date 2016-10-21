@@ -1,82 +1,130 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!-- Aluna: Tamara da Silva Teixeira
 	Disciplina: Construção de Página WEB
 	Pólo: Saquarema -->
 <head>
-<title>Bola da Vez - Bolas</title>
+<title>Bola da Vez - Cadastro</title>
 <link href="estilos.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript">
+function verifica() {
+  if (document.forms[0].email.value.length == 0) {
+    alert('Campo EMAIL não pode ser vazio');
+	document.frmEnvia.email.focus();
+    return false;
+  }
+  return true;
+}
+
+function checarEmail(){
+	
+	var x = document.forms[0].email.value;
+    var atpos = x.indexOf("@");
+    var dotpos = x.lastIndexOf(".");
+	
+	
+if (atpos<1	){
+        alert("Email tem que ter um caracter '@'!");
+        return false;	
+	}
+if	(dotpos<1) {
+	    alert("Email tem que ter pelo menos um caracter '.'!");
+        return false;	
+	}
+
+if	(dotpos<atpos+2 || dotpos+2>=x.length) {
+	    alert("O '.' não pode estar imediatamente após o '@' nem no fim do email!");
+        return false;	
+	}
+}
+</script>
+
 </head>
 <body>
 <div class="wrapper">
+
 <header>
-<div class="imgLogo"> <a href="boladavez.html"><img src="images/logo_pequeno.png" alt="Logo" width="380" height="70"></a>
+<div class="imgLogo">
+<a href="boladavez.html"><img src="images/logo_pequeno.png" alt="Logo" width="380" height="70"></a>
 </div>
 <div class="ender">
-Avenida Volta Redonda, 906<br>
-    Tel: (21) 1234-5678<br>
-    <a href="mailto:contato@boladavez.com.br">contato@boladavez.com.br</a>
+Avenida Volta Redonda, 906<br>Tel: (21) 1234-5678<br>
+<a href="mailto:contato@boladavez.com.br">contato@boladavez.com.br</a>
 </div>
-</header><br>
+</header>
+
 <nav>
-<ul type="circle">
+<ul>
       <li><a href="boladavez.html">Inicial</a></li>
-      <li><a href="bolas.html">Bolas</a>
-      </li>
-      <li><a href="esportes.html">Esportes
-      </a></li>
-      <li><a href="cadastro.html">Cadastro
-  </a></li>
+      <li><a href="bolas.html">Bolas</a></li>
+      <li><a href="esportes.html">Esportes</a></li>
+      <li><a href="cadastro.html">Cadastro</a></li>
       <li><a href="compras.html">Compras</a></li>
-    </ul>
+  </ul>
 </nav>
+
 <section>
 <h1>Cadastro</h1>
-<form style="width:510px;">
+<form style="width:510px;" method="post" action="" onSubmit="return ( verifica() )" name="frmEnvia">
 
 <fieldset>
 	<legend>Indentificação</legend>
 	<div class="formLinha">
-   		<label class="colPri">E-mail:</label>
-		<input type="email" class="inpGrande">
+   		<label class="colPri" for="email">E-mail:</label>
+		<input name="email" type="text" class="inpGrande" id="email" onblur="checarEmail();" />
     </div>
 	<div class="formLinha2">
-   		<label class="colPri">Senha:</label>
-       	<input type="password" class="inpMedio">
-		<label class="elemDir">Confirme: 
-  	    	<input type="password" class="inpMedio">
-       	</label>
-    </div>
+   		<label class="colPri" for="senha">Senha:</label>
+       	<input type="password" class="inpMedio" id="senha" name="pass">
+		<span class="elemDir">
+		<label for="confsenha">Confirme:</label>	
+        <input type="password" class="inpMedio" id="confsenha">
+		</span>        
+   	</div>    
 </fieldset>
 
 <fieldset>
 <legend>Dados Pessoais</legend>
 	<div class="formLinha">
-    	<label class="colPri">Nome:</label>
-		<input type="text" class="inpGrande">
+    	<label class="colPri" for="name">Nome:</label>
+		<input type="text" class="inpGrande" id="name" name="nome">
     </div>
 	<div class="formLinha">
-    	<label class="colPri">Endereço:</label>
-		<textarea rows="1" class="inpGrande"></textarea>
+    	<label class="colPri" for="address">Endereço:</label>
+		<textarea rows="2" class="inpGrande" id="address" name="endere"></textarea>
     </div>
 	<div class="formLinha2">
-    	<label class="colPri">Telefone:</label>
-        <input type="tel" class="inpMedio">
-		<label class="elemDir">Celular: 
-        	<input type="tel" class="inpMedio">
-        </label>
+    	<label class="colPri" for="tel">Telefone:</label>
+        <input type="tel" class="inpMedio" id="tel" name="tele">
+        <span class="elemDir">
+		<label for="cel">Celular: </label>
+       	<input type="tel" class="inpMedio" id="cel" name="celu">
+        </span>
+
     </div>
-	<fieldset class="fsEsq">
+	
+    <fieldset class="fsEsq">
 		<legend>Nascimento:</legend>
-		<input type="number" class="numDD" min="01" max="31">/<input type="number" class="numDD" min="01" max="12">/<input type="number" class="numQD" min="1920" max="2016">
+		<input type="number" class="numDD" min="01" max="31">/
+        <input type="number" class="numDD" min="01" max="12">/
+        <input type="number" class="numQD" min="1920" max="2016">
 	</fieldset>
+    
 	<fieldset class="fsDir">
 		<legend>Sexo:</legend>
-		<input type="radio" value="masculino" id="male" name="sexo"><label for="male">Masculino</label><input type="radio" value="feminino" name="sexo" id="female"><label for="female">Feminino</label>
+		<input type="radio" value="masculino" id="male" name="sexo"><label for="male">Masculino</label>
+        <input type="radio" value="feminino" name="sexo" id="female"><label for="female">Feminino</label>
 	</fieldset>
 </fieldset>
-<div class="botoes"><input type="submit" value="Enviar"><input type="reset" value="Limpar"></div>
+
+<div class="botoes">
+<input name="submit" type="submit" value="Enviar">
+<input type="reset" value="Limpar">
+</div>
+
 </form>
 </section>
+
 </div>
 </body>
 </html>

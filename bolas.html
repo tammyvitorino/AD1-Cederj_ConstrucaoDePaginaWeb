@@ -2,47 +2,83 @@
 <!-- Aluna: Tamara da Silva Teixeira
 	Disciplina: Construção de Página WEB
 	Pólo: Saquarema -->
+<html>
 <head>
-<title>Bola da Vez - Bolas</title>
+<title>Bola da Vez - Bolas</title><base target="_blank" /> 
 <link href="estilos.css" rel="stylesheet" type="text/css">
+
+<script>
+
+var Bolas = new Array(4);
+var Modelos = new Array(4);
+
+Bolas[0] = ["Basquete", 300, 350, "Bola_Basquete" ];
+Bolas[1] = ["Vôlei", 300, 400, "Bola_Volei" ];
+Bolas[2] = ["Tênis", 300, 350, "Bola_Tenis" ];
+Bolas[3] = ["Futebol", 300, 400, "Bola_Futebol" ];
+
+Modelos[0] = [ ["Wilson", 70]];
+Modelos[1] = [ ["Wilson", 73], ["Penalty", 80] ];
+Modelos[2] = [ ["Wilson", 45]];
+Modelos[3] = [ ["Penalty Matis", 75], ["Penalty Ultra", 70] ];
+
+function MostraModelos(tipo) {
+
+var janela = open ("", Bolas[tipo][0],
+"location=no,status=no,width=" +
+Bolas[tipo][1] + ",height=" +
+Bolas[tipo][2] + "");with (janela.document) {
+
+write("<html><head><title>Bola da Vez</title>");
+write("<link rel='stylesheet' type='text/css' href='estilos.css'>");
+write("</head><body><div class='apres'>");
+write("<h2>", Bolas[tipo][0], "</h2>");
+write("<img src='images/", Bolas[tipo][3],".jpg' /></div>");
+write("<div class='subpage'><ul>");for (i = 0; i < Modelos[tipo].length; i++)
+write("<li>", Modelos[tipo][i][0]," - R$ ", Modelos[tipo][i][1],",00</li>");
+write("</ul></div>");
+write("<div class='apres'>");
+write("<input type='button' value='Fechar' ");
+write("onClick='window.close();'/></div>");
+write("</form></div></body></html>");
+close();
+}
+}
+</script>
+
 </head>
 <body>
 <div class="wrapper">
+
 <header>
-<div class="imgLogo"> <a href="boladavez.html"><img src="images/logo_pequeno.png" alt="Logo" width="380" height="70"></a>
+<div class="imgLogo">
+<a href="boladavez.html"><img src="images/logo_pequeno.png" alt="Logo" width="380" height="70"></a>
 </div>
-<div class="ender">
-Avenida Volta Redonda, 906<br>
-    Tel: (21) 1234-5678<br>
-    <a href="mailto:contato@boladavez.com.br">contato@boladavez.com.br</a>
-</div>
-</header><br>
+<address class="ender">
+Avenida Volta Redonda, 906<br>Tel: (21) 1234-5678<br>
+<a href="mailto:contato@boladavez.com.br">contato@boladavez.com.br</a>
+</address>
+</header>
+
 <nav>
-<ul type="circle">
+<ul>
       <li><a href="boladavez.html">Inicial</a></li>
-      <li><a href="bolas.html">Bolas</a>
-      </li>
-      <li><a href="esportes.html">Esportes
-      </a></li>
-      <li><a href="cadastro.html">Cadastro
-  </a></li>
+      <li><a href="bolas.html">Bolas</a></li>
+      <li><a href="esportes.html">Esportes</a></li>
+      <li><a href="cadastro.html">Cadastro</a></li>
       <li><a href="compras.html">Compras</a></li>
   </ul>
 </nav>
+
 <section>
 <h1>Bolas</h1>
-<ol><li>Basquete</li>
-		<ul><li>Wilson - R$ 70,00</li></ul>
- 	<li>Vôlei</li>
-		<ul><li>Wilson - R$ 73,00</li></ul>
-		<ul><li>Penalty - R$ 80,00</li></ul>
-	<li>Tênis</li>
-		<ul><li>Wilson -R$ 45,00</li></ul>
-	<li>Futebol</li>
-		<ul><li>Penalty Matis - R$ 75,00</li></ul>
-		<ul><li>Penalti Ultra - R$ 70,00</li></ul>
+<ol><li><a target="_self" href="javascript:MostraModelos(0);">Basquete</a></li>
+ 	<li><a target="_self" href="javascript:MostraModelos(1);">Vôlei</a></li>
+	<li><a target="_self" href="javascript:MostraModelos(2);">Tênis</a></li>
+	<li><a target="_self" href="javascript:MostraModelos(3);">Futebol</a></li>
 </ol>
 </section>
+
 </div>
 </body>
 </html>
